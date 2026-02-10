@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const NavLinks = () => {
   return (
     <>
-      <NavLink to="/FoodLog">FOOD LOG</NavLink>
+      <NavLink to="/FoodLogHome">FOOD LOG</NavLink>
       <NavLink to="/Recipes">RECIPES</NavLink>
       <NavLink to="/CalorieCalculator">CALORIE CALCULATOR</NavLink>
     </>
@@ -16,7 +16,7 @@ const Nav = () => {
       <nav className="w-1/3 p-10 pt-15">
         <div className="flex justify-between">
                   <NavLinks />
-                  <img src="logo/userlogo.png" alt="User-Logo" className="w-10 h-10 rounded-full" />
+                  <img src="public/userlogo.png" alt="User-Logo" className="w-7 h-7 rounded-full" />
         </div>
       </nav>
     </>

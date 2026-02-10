@@ -29,8 +29,8 @@ urlpatterns = [
     path('admin/', site.urls),
     path('user/',BmrTdeeAPIView.as_view()),
     path('user_form/',user_form),
-    path('food-log',UserLogView.as_view()),
-    path('food-log/<str:log_id>/',UserLogDetailView.as_view()),
+    path('food-log/',UserLogView.as_view()),
+    path('food-log/<int:log_id>/',UserLogDetailView.as_view()),
     path("api/recipe-search/", RecipeSearchView.as_view(), name="recipe-search")
 ]
 

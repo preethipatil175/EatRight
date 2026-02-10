@@ -6,6 +6,11 @@ from .serializers import UserLogSerializer
 from .models import User_Log
 
 class UserLogView(APIView):
+    def get(self, request):
+        logs = User_Log.objects.all()
+        serializer = UserLogSerializer(logs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+     
     def post(self, request):
         """Create a new food log entry"""
         serializer = UserLogSerializer(data=request.data)
