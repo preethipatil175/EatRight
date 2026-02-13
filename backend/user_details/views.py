@@ -16,6 +16,14 @@ class BmrTdeeAPIView(APIView):
         if serializer.is_valid():
             data = serializer.validated_data
 
+            # serializer.save(
+            #     name=name,
+            #     bmr=round(bmr, 2),
+            #     tdee=tdee,
+            #     calories=calories
+            # )
+
+
             name = data['name']
             age = data['age']
             gender = data['gender']
