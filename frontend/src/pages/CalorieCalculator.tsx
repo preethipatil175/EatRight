@@ -4,84 +4,86 @@ const CalorieCalculator = () => {
   return (
     <div className="min-h-screen bg-gray-200">
       <NavBar />
-      <div>
-        <h1 className="text-3xl font-bold text-center mt-8">
-          Calorie Calculator
-        </h1>
-        <div className="container border-2 border-black p-10 w-1/2 mt-5 mx-auto">
+      <div className="flex justify-center items-center gap-8 px-60 mt-8">
+        {/* LEFT: FORM */}
+        <div className="border-2 border-black w-3/5 p-10">
           <div>
-            <p>Name</p>
-            <input type="text" placeholder="Enter your Name" />
+            <p className="font-bold text-xl">Name</p>
+            <input
+              className="border-1 border-black w-3/4 rounded-3xl p-2"
+              type="text"
+              placeholder="Enter your Name"
+            />
           </div>
+
           <div>
-            <p>Age</p>
-            <input type="text" placeholder="Enter your Age" />
+            <p className="font-bold text-xl">Age(yrs)</p>
+            <input
+              className="border-1 border-black w-3/4 rounded-3xl p-2"
+              type="text"
+              placeholder="Enter your Age"
+            />
           </div>
+
           <div>
-            <p>Gender</p>
-            <select>
+            <p className="font-bold text-xl">Gender</p>
+            <select className="border-1 border-black w-3/4 rounded-3xl p-2">
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </div>
+
           <div>
-            <p>Height(in cm)</p>
-            <input type="text" placeholder="Enter your Height" />
+            <p className="font-bold text-xl">Height(cm)</p>
+            <input
+              className="border-1 border-black w-3/4 rounded-3xl p-2"
+              type="text"
+              placeholder="Enter your Height"
+            />
           </div>
+
           <div>
-            <p>Weight(in kg)</p>
-            <input type="text" placeholder="Enter your Weight" />
+            <p className="font-bold text-xl">Weight(kg)</p>
+            <input
+              className="border-1 border-black w-3/4 rounded-3xl p-2"
+              type="text"
+              placeholder="Enter your Weight"
+            />
           </div>
+
           <div>
-            <p>Goal</p>
-            <select>
+            <p className="font-bold text-xl">Goal</p>
+            <select className="border-1 border-black w-3/4 rounded-3xl p-2">
               <option value="lose">Lose Weight</option>
               <option value="maintain">Maintain Weight</option>
               <option value="gain">Gain Weight</option>
             </select>
           </div>
+
           <div>
-            <p>Activity Level</p>
-            <select>
-              <option value="sedentary">
-                Sedentary (little or no exercise)
-              </option>
-              <option value="light">
-                Lightly Active (light exercise/sports 1-3 days/week)
-              </option>
-              <option value="moderate">
-                Moderately Active (moderate exercise/sports 3-5 days/week)
-              </option>
-              <option value="active">
-                Active (hard exercise/sports 6-7 days/week)
-              </option>
-              <option value="veryActive">
-                Very Active (very hard exercise/sports & physical job)
-              </option>
+            <p className="font-bold text-xl">Activity Level</p>
+            <select className="border-1 border-black w-3/4 rounded-3xl p-2">
+              <option value="sedentary">Sedentary</option>
+              <option value="light">Lightly Active</option>
+              <option value="moderate">Moderately Active</option>
+              <option value="active">Active</option>
+              <option value="veryActive">Very Active</option>
             </select>
           </div>
         </div>
-        <div>
-          <div className="px-6 py-4 h-30 w-1/2 border-2 border-black">
-            <div className="font-bold text-xl mb-2 ">Card Title</div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.
-            </p>
-          </div>
-          <div className="px-6 py-4 h-30 w-1/2 border-2 border-black">
+
+        {/* RIGHT: CARDS */}
+        <div className="flex flex-col gap-4 w-1/4">
+          <div className="px-6 py-4 h-45 border-2 border-black">
             <div className="font-bold text-xl mb-2">Card Title</div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.
-            </p>
           </div>
-          <div className="px-6 py-4 h-30 w-1/2 border-2 border-black">
+
+          <div className="px-6 py-4 h-45 border-2 border-black">
             <div className="font-bold text-xl mb-2">Card Title</div>
-            <p className="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              nec odio. Praesent libero. Sed cursus ante dapibus diam.
-            </p>
+          </div>
+
+          <div className="px-6 py-4 h-45 border-2 border-black">
+            <div className="font-bold text-xl mb-2">Card Title</div>
           </div>
         </div>
       </div>
