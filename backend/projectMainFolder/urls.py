@@ -20,7 +20,7 @@ from user_details import models
 from user_log import models
 from user_details.views import BmrTdeeAPIView,user_form
 from user_log.views import UserLogView,UserLogDetailView
-from recipes.views import RecipeSearchView
+from recipes.views import RecipeChatView
 
 # Register your MongoEngine model
 # site.register(models.User_Details)
@@ -31,7 +31,7 @@ urlpatterns = [
     path('user_form/',user_form),
     path('food-log/',UserLogView.as_view()),
     path('food-log/<int:log_id>/',UserLogDetailView.as_view()),
-    path("api/recipe-search/", RecipeSearchView.as_view(), name="recipe-search")
+    path("api/recipe-search/", RecipeChatView.as_view(), name="recipe-search")
 ]
 
 # urls.py

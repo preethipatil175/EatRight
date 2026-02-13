@@ -1,33 +1,23 @@
 import { useState } from "react";
 import NavBar from "../components/Navbar";
-import { URL } from "../assests/constants";
 
 const Recipes = () => {
   const [question, setQuestion] = useState("");
-  const [result, setResult] = useState(undefined);
+  const [result, setResult] = useState<string>("");
 
-  const payload = {
-    contents: [
-      {
-        parts: [
-          {
-            text: question,
-          },
-        ],
-      },
-    ],
-  };
   const askQuestion = async () => {
-    let response = await fetch(URL, {
+    const response = await fetch("http://localhost:8000/api/recipe-search/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        prompt: question,
+      }),
     });
 
-    response = await response.json();
-      setResult(response.candidates[0].content.parts[0].text);
+    const data = await response.json();
+    setResult(data.answer);
   };
 
   return (
@@ -37,7 +27,9 @@ const Recipes = () => {
         <h2 className="pl-5 mb-2 text-3xl font-bold text-green-700">
           Get Your Personalised Recipes
         </h2>
-        <div className="h-120 border-1 rounded-2xl">{result}</div>
+        <div className="h-120 border-1 rounded-2xl p-3">
+          {result || "Your recipe will appear here..."}
+        </div>
         <div className="border-1 rounded-3xl p-1 mt-5  mx-auto flex">
           <input
             className="p-3 w-full h-full outline-none"

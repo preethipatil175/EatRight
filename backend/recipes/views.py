@@ -1,54 +1,46 @@
-import requests
-from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.conf import settings
+import openai
 
-class RecipeSearchView(APIView):
+
+class RecipeChatView(APIView):
     def post(self, request):
-        meal_type = request.data.get("meal_type")
-        diet_type = request.data.get("diet_type")
-        calories = request.data.get("calories")
+        prompt = request.data.get("prompt")
 
-        if not (meal_type and diet_type and calories):
+        if not prompt:
             return Response(
-                {"error": "meal_type, diet_type and calories are required"},
+                {"error": "prompt is required"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Spoonacular endpoint
-        url = "https://api.spoonacular.com/recipes/complexSearch"
-
-        params = {
-            "diet": diet_type,         
-            "type": meal_type,         
-            "maxCalories": calories,   
-            "number": 1,               
-            "addRecipeInformation": True,
-            "apiKey": settings.SPOONACULAR_API_KEY
-        }
-
         try:
-            response = requests.get(url, params=params)
-            data = response.json()
+            # ✅ set key HERE
+            openai.api_key = settings.OPENAI_API_KEY
 
-            if not data["results"]:
-                return Response({"message": "No recipes found"}, status=404)
-
-            recipe = data["results"][0]
-
-            formatted_response = {
-                "name": recipe["title"],
-                "image": recipe["image"],
-                "ready_in_minutes": recipe["readyInMinutes"],
-                "servings": recipe["servings"],
-                "ingredients": [
-                    item["original"] for item in recipe["extendedIngredients"]
+            completion = openai.ChatCompletion.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a professional chef and nutrition expert. "
+                            "Generate a healthy recipe with ingredients and steps."
+                        )
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
                 ],
-                "instructions": recipe["instructions"]
-            }
+                temperature=0.7,
+                max_tokens=500
+            )
 
-            return Response(formatted_response, status=200)
+            reply = completion.choices[0].message.content
+
+            return Response({"reply": reply}, status=200)
 
         except Exception as e:
             return Response({"error": str(e)}, status=500)
