@@ -1,6 +1,11 @@
-export default function Dashboard() {
-    return(
-        <h1>DashBoard</h1>
+import NavBar from "../components/Navbar";
+
+const DashBoard=()=>{
+    return (
+        <div>
+            <NavBar/>
+        </div>
     )
 }
-    
+
+export default DashBoard;

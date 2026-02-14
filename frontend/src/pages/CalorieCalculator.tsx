@@ -47,7 +47,7 @@ const CalorieCalculator = () => {
       <NavBar />
       <div className="flex justify-center items-center gap-8 px-60 mt-8">
         {/* LEFT: FORM */}
-        <div className="border-2 border-black rounded-2xl w-3/5 px-10 py-2">
+        <div className="border-2 border-black rounded-2xl w-3/5 px-10 py-2 shadow-xl">
           <div className="px-10">
             <p className="font-bold text-xl px-3">Name</p>
             <input
@@ -140,10 +140,10 @@ const CalorieCalculator = () => {
         </div>
 
         {/* RIGHT: CARDS */}
-        <div className="flex flex-col gap-4 w-1/4">
+        <div className="flex flex-col gap-4 w-1/4 shadow-xl">
           <div className="px-6 py-4 h-48 border-2 border-black rounded-2xl">
-            <div className="font-bold text-center text-xl mb-2">BMR</div>
-            <div className="text-center text-lg">
+            <div className="font-bold text-center text-xl mb-2 ">BMR</div>
+            <div className="text-center text-lg font-xl">
               {bmr !== null ? bmr : "--"}
             </div>
           </div>

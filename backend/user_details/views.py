@@ -17,7 +17,6 @@ class BmrTdeeAPIView(APIView):
             data = serializer.validated_data
 
             # serializer.save(
-            #     name=name,
             #     bmr=round(bmr, 2),
             #     tdee=tdee,
             #     calories=calories

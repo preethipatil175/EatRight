@@ -18,18 +18,20 @@ const PreviousLogs = () => {
       .then((data) => setLogs(data))
       .catch((err) => console.error(err));
   }, []);
+
   return (
     <>
       <NavBar />
       <div>
         <h1>Previous Logs</h1>
 
-        {logs.map((log: FoodLog) => (
+        {logs.map((log) => (
           <div key={log.id}>
-            <p>{log.meal_type}</p>
-            <p>{log.food_name}</p>
-            <p>{log.calories}</p>
-            <p>{log.date}</p>
+            <p>Meal: {log.meal_type}</p>
+            <p>Food: {log.food_name}</p>
+            <p>Calories: {log.calories}</p>
+            <p>Date: {log.date}</p>
+            <hr />
           </div>
         ))}
       </div>

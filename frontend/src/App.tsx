@@ -4,6 +4,7 @@ import PreviousLogs from "./pages/PreviousLogs";
 import Recipes from "./pages/Recipes";
 import CalorieCalculator from "./pages/CalorieCalculator";
 import Dashboard from "./pages/Dashboard";
+import AddNewLog from "./pages/AddNewLog";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path='/PreviousLogs' element={<PreviousLogs />} />
       <Route path='/Recipes' element={<Recipes />} />
       <Route path="/CalorieCalculator" element={<CalorieCalculator />} />
+      <Route path="/AddNewLog" element={<AddNewLog />} />
     </Routes>
   )
 }
